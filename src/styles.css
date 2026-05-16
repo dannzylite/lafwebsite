@@ -1,0 +1,194 @@
+@import "tailwindcss" source("../");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+SC:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
+
+:root {
+  --laf-navy: #0A1929;
+  --laf-gold: #C5A028;
+  --laf-gold-light: #E8C84B;
+  --laf-cream: #FAF7F0;
+  --laf-white: #FFFFFF;
+  --laf-text: #1A1A2E;
+  --laf-muted: #6B7280;
+  --laf-border: #E5E2D8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--laf-text);
+  background: var(--laf-white);
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sc {
+  font-family: 'Cormorant SC', Georgia, serif;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade up animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes countPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes floatPulse {
+  0%, 100% { transform: scale(1) translateY(0); box-shadow: 0 8px 24px rgba(197,160,40,0.4); }
+  50% { transform: scale(1.05) translateY(-2px); box-shadow: 0 12px 32px rgba(197,160,40,0.6); }
+}
+
+@keyframes chevronBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-chevron {
+  animation: chevronBounce 1.5s ease-in-out infinite;
+}
+
+.animate-float-pulse {
+  animation: floatPulse 2.5s ease-in-out infinite;
+}
+
+.logo-scroll {
+  animation: scrollLogos 30s linear infinite;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e0ddd6 25%, #f0ede6 50%, #e0ddd6 75%);
+  background-size: 468px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(10,25,41,0.15);
+}
+
+/* Nav transition */
+.nav-scrolled {
+  background: rgba(10, 25, 41, 0.97) !important;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* Progress bar */
+.progress-bar {
+  background: linear-gradient(90deg, var(--laf-gold), var(--laf-gold-light));
+  transition: width 1.5s ease-out;
+}
+
+/* Section reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--laf-gold);
+  margin: 16px 0;
+}
+
+/* Countdown */
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+.countdown-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--laf-gold);
+  line-height: 1;
+}
+.countdown-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+/* Quote rotator */
+.quote-slide {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Copy button */
+.copy-btn {
+  transition: all 0.2s ease;
+}
+.copy-btn:hover {
+  background: var(--laf-gold);
+  color: var(--laf-navy);
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--laf-gold);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--laf-gold); border-radius: 3px; }
+
+/* Print */
+@media print {
+  .no-print { display: none !important; }
+}
